@@ -115,11 +115,15 @@ fn handle_device<T: HierarchyChangeEvent<T>>(
     device_info: &T,
     change: HierarchyMask,
 ) {
-    let mut command = Command::new(&opt.command);
+    let mut command = Command::new("/bin/sh");
 
-    command
-        .arg(format!("XI{:#?}", change))
-        .args(device_info.to_cmdline(conn));
+    command.arg("-c").arg(format!(
+        "{} \"XI{:#?}\" \"{}\"",
+        &opt.command,
+        change,
+        device_info.to_cmdline(conn).join("\" \"")
+    ));
+
     if opt.verbose {
         println!("{:?}", &command);
     }

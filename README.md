@@ -82,9 +82,7 @@ A summary of options is included below.
 
 * **-c** _command-prefix_
 
-    Command prefix to run. Unfortunately, currently this is passed to
-    [execvp(3)](http://manpages.debian.org/execvp) directly, so spaces aren't allowed. This is subject to
-    change in future.
+    Shell command to run.
 
 * **-p** _pidfile_
 

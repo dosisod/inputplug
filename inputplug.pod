@@ -94,11 +94,9 @@ On start, trigger added and enabled events for each plugged devices. A
 master device will trigger the "added" event while a slave device will
 trigger both the "added" and the "enabled" device.
 
-=item B<-c> I<command-prefix>
+=item B<-c> I<command>
 
-Command prefix to run. Unfortunately, currently this is passed to
-L<execvp(3)> directly, so spaces aren't allowed. This is subject to
-change in future.
+Shell command to run.
 
 =item B<-p> I<pidfile>
 
